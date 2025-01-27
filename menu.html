@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Button</title>
+    <style>
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+
+        .container {
+            max-width: 100%;
+            padding-left: 160px;
+            padding-right: 169px;
+        }
+
+        .my-container {
+            max-width: 100%;
+            padding-right: 86px;
+        }
+
+        .ft__nav__main {
+            padding-top: 8px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .nav__wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo__img {
+            width: 83px;
+        }
+
+        .nav__left {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            column-gap: 66px;
+        }
+
+        .nav__menu ul {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            column-gap: 30px;
+        }
+
+        .nav__link {
+            font-family: "Poppins";
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 16.71px;
+            text-align: left;
+            color: #173D7D;
+        }
+
+        .nav__link::after {
+            content: "";
+            height: 3px;
+            width: 0%;
+            background-color: #173D7D;
+            display: block;
+            transition: .5s ease-in-out;
+        }
+
+        .nav__link:hover:after {
+            content: "";
+            height: 3px;
+            width: 100%;
+            background-color: #173D7D;
+            display: block;
+        }
+
+        .nav__right {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            column-gap: 28px;
+        }
+
+        .nav__btn {
+            padding: 11px 28px 12px;
+            color: white;
+            font-family: "Antonio";
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 19.41px;
+            text-align: left;
+            transition: all ease-in-out .4s;
+            background-color: #08224C;
+            border: 2px solid transparent;
+
+        }
+
+        .nav__btn:hover {
+            background-color: #fff;
+            color: #08224C;
+            border: 2px solid #08224C;
+
+        }
+
+        a .mart__img {
+            width: 23px;
+        }
+
+        #ham {
+            color: #a77a33;
+        }
+
+        .navbar {
+            background-color: #333;
+            width: 25%;
+            height: 100vh;
+            display: none;
+        }
+
+        .navbar li:hover {
+            cursor: pointer;
+        }
+
+
+        .navbar li a {
+            color: #d3e3e3;
+            text-decoration: none;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.6em;
+            transition: all .5s;
+        }
+
+        .navbar li:hover {
+            cursor: pointer;
+            background-color: #ce3939;
+            letter-spacing: 10px;
+        }
+
+        .hamburger {
+            display: none;
+            margin: 0;
+            /* margin-left: 15px; */
+            padding: 0;
+            float: left;
+            transition: opacity .3s;
+        }
+
+        .hamburger:hover {
+            cursor: pointer;
+            opacity: .5;
+        }
+
+        .hamburger .line {
+            width: 50px;
+            height: 5px;
+            background: rgb(236, 66, 66);
+            margin: 8px auto;
+            transition: all 0.3s ease-in-out;
+            border-radius: 5px;
+        }
+
+        .hamburger .line:nth-child(1) {
+            background-color: #3552d5;
+        }
+
+        .hamburger .line:nth-child(2) {
+            background-color: #3552d5;
+        }
+
+        .hamburger .line:nth-child(3) {
+            background-color: #3552d5;
+        }
+
+        .hamburger.isactive .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.isactive .line:nth-child(1) {
+            transform: translateY(13px) rotate(45deg);
+        }
+
+        .hamburger.isactive .line:nth-child(3) {
+            transform: translateY(-13px) rotate(-45deg);
+        }
+
+        .navbar {
+            transition: all 2s ease-in-out;
+        }
+
+        .navbar.active {
+            display: block;
+            animation: fade .5s;
+        }
+
+
+        @keyframes fade {
+            from {
+                transform: translateX(-200px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+
+        @media screen and (max-width: 1360px) {
+
+            .h1 h1 {
+                font-size: 3em;
+                left: 35%;
+            }
+
+            .navbar {
+                width: 30%;
+            }
+
+            .navbar ul {
+                padding-left: 0%;
+            }
+
+            .navbar li {
+                padding: 3% 0;
+            }
+
+            .navbar li a {
+                font-size: 1.2em;
+            }
+
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                float: right;
+            }
+
+            .h1 h1 {
+                left: 23%;
+                top: 50%;
+                font-size: 1.4em;
+            }
+
+            .navbar {
+                background-color: #333;
+                width: 100%;
+                height: 45vh;
+                display: none;
+            }
+
+            .navbar ul {
+                overflow: hidden;
+                list-style-type: none;
+                padding-top: 25%;
+                padding-left: 0%;
+                padding-right: 3%;
+                padding-bottom: 3%;
+                text-align: center;
+                margin: 0;
+            }
+
+            .navbar li {
+                display: block;
+                margin: 0;
+                padding: 25px 20px;
+                width: 100%;
+                transition: background-color .5s;
+            }
+
+            .navbar li:hover {
+                cursor: pointer;
+                background-color: #ce3939;
+            }
+
+
+            .navbar li a {
+                color: #d3e3e3;
+                text-decoration: none;
+                padding: 14px 16px;
+                font-family: 'Raleway', sans-serif;
+                font-size: 28px;
+                transition: all 1s;
+            }
+
+            .navbar li:hover {
+                cursor: pointer;
+                background-color: #ce3939;
+                letter-spacing: 0px;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .navbar {
+                background-color: #333;
+                width: 100%;
+                height: 100vh;
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+                margin-left: auto;
+                margin-right: 20px;
+            }
+
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .nav__menu {
+                display: none;
+            }
+
+            .nav__right {
+                margin-left: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="ft__nav__main">
+            <div class="container">
+                <div class="nav__wrap">
+                    <div class="nav__left">
+                        <a href="#">
+                            <div class="logo__img"><img src="img/image_2021_02_13T16_24_17_269Z 1@2x.svg"></div>
+                        </a>
+                        <div class="nav__menu">
+                            <ul>
+                                <li><a href="#" class="nav__link">About Jenn</a></li>
+                                <li><a href="#" class="nav__link">Exponentiality</a></li>
+                                <li><a href="#" class="nav__link">Book</a></li>
+                                <li><a href="#" class="nav__link">Blog</a></li>
+                                <li><a href="#" class="nav__link">Shop</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="nav__right">
+                        <a href="#" class="nav__btn">Schedule a talk</a>
+                        <a href="#">
+                            <div class="mart__img"><img src="img/Group 2.svg"></div>
+                        </a>
+                    </div>
+                    <div class="hamburger">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hamburger-main">
+            <menu class="navbar">
+                <ul>
+                    <li><a href="#"><b>About Jenn</b></a></li>
+                    <li><a href="#"><b>Exponentiality</b></a></li>
+                    <li><a href="#"><b>Book</b></a></li>
+                    <li><a href="#"><b>Blog</b></a></li>
+                    <li><a href="#"><b>Shop</b></a></li>
+                </ul>
+            </menu>
+        </div>
+    </header>
+    <script>
+        let hamburger = document.querySelector('.hamburger');
+        let menu = document.querySelector('.navbar');
+        let bod = document.querySelector('.container');
+
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('isactive');
+            menu.classList.toggle('active');
+
+        });
+    </script>
+</body>
+
+</html>
