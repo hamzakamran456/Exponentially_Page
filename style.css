@@ -1,3 +1,10 @@
+@media screen and (min-width: 1920px) {
+    .container {
+        max-width: 100%;
+        padding-left: 340px !important;
+        padding-right: 340px !important;
+    }
+}
 * {
     margin: 0;
     padding: 0;
